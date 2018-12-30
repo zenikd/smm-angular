@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
+  baseRestPath: string = 'http://localhost:8010/smm/rest';
 
   constructor(private http: HttpClient) { }
 
@@ -13,8 +14,8 @@ export class DataService {
     return this.http.get('https://jsonplaceholder.typicode.com/users')
   }
 
-  getUser(userId) {
-    return this.http.get('https://jsonplaceholder.typicode.com/users/'+userId)
+  getUser() {
+    return this.http.get(this.baseRestPath +'/user/get')
   }
 
   getPosts() {
